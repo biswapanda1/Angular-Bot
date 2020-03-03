@@ -6,12 +6,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./chat-input.component.css']
 })
 export class ChatInputComponent implements OnInit {
-  public inputValue:any="";
   constructor() { }
-  @Input() inputval:string;
+  public message:any;
+  public inputValue:any="";
   ngOnInit() {
   }
   sendMessage=()=>{
+    this.message=this.inputValue;
     console.log(this.inputValue);
   };
 }
