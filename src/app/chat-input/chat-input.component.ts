@@ -1,18 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import {MessageServiceService} from '../'
 @Component({
   selector: 'app-chat-input',
   templateUrl: './chat-input.component.html',
   styleUrls: ['./chat-input.component.css']
 })
 export class ChatInputComponent implements OnInit {
-  constructor() { }
-  public message:any;
+  constructor(private messageService:MessageServiceService) { }
+  public messageList=[];
   public inputValue:any="";
   ngOnInit() {
   }
   sendMessage=()=>{
-    this.message=this.inputValue;
-    console.log(this.inputValue);
+    this.messageList.push(this.inputValue);
+    console.log(this.messageList);
+
   };
 }

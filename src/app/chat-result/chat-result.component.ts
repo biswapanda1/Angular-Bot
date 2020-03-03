@@ -6,11 +6,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./chat-result.component.css']
 })
 export class ChatResultComponent implements OnInit {
-  @Input() message:string;
+  @Input() messageList:any;
+  
   constructor() { }
+  public date;
   inputval:string;
-  //@Input public inputval;
   ngOnInit() {
+    this.date=Date.now();
   }
 
 }
