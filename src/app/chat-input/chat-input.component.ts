@@ -21,6 +21,12 @@ export class ChatInputComponent implements OnInit {
     console.log(this.messageList);
   }
   sendMessage = () => {
-  
+    this.messageService.getGoogleSearch(this.inputValue).subscribe(res=>{
+      console.log("hiii");
+    })
+    // this.messageService.addMessage(this.inputValue).subscribe(res=>{
+    //   console.log(res)
+    // });
+  console.log("hello");
   };
 }
