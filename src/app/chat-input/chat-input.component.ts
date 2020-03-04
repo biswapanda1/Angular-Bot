@@ -11,12 +11,16 @@ export class ChatInputComponent implements OnInit {
   public messageList = [];
   public inputValue: any = "";
   
-  ngOnInit() {}
-  sendMessage = () => {
-    this.messageService.getMessageList().subscribe(response=>{
-      this.messageList.push(JSON.stringify(response))
+  ngOnInit() {
+      this.messageService.getMessageList().subscribe(response=>{
+      console.log(response.length);
+      for(let i=0;i<response.length;i++){
+          this.messageList.push(response[i].message);
+      }
       });
-   // this.messageList.push(this.inputValue);
     console.log(this.messageList);
+  }
+  sendMessage = () => {
+  
   };
 }
