@@ -14,19 +14,28 @@ export class ChatInputComponent implements OnInit {
   ngOnInit() {
       this.messageService.getMessageList().subscribe(response=>{
       console.log(response.length);
+      var message = {};
       for(let i=0;i<response.length;i++){
-          this.messageList.push(response[i].message);
+        message['message'] =response[i].message
+           this.messageService.getGoogleSearch(response[i].message).subscribe(res=>{
+             if(res.items){
+               message['result']=res.items[0]['title']
+             }
+      console.log(res.items);
+    })
+        console.log(message);
+          this.messageList.push(message);
       }
       });
     console.log(this.messageList);
   }
   sendMessage = () => {
-    this.messageService.getGoogleSearch(this.inputValue).subscribe(res=>{
-      console.log("hiii");
-    })
-    // this.messageService.addMessage(this.inputValue).subscribe(res=>{
-    //   console.log(res)
-    // });
+    // this.messageService.getGoogleSearch(this.inputValue).subscribe(res=>{
+    //   console.log(res.items);
+    // })
+    this.messageService.addMessage(this.inputValue).subscribe(res=>{
+     this.ngOnInit();
+    });
   console.log("hello");
   };
 }
