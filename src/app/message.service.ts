@@ -21,7 +21,7 @@ export class MessageService {
   addMessage(message: any): Observable<any> {
     return this.http.post<any>(
       "https://5e5e480b725f320014ed12f4.mockapi.io/MessageList",
-      { message: message },
+      { message: message, createdDate: Date.now() },
       {
         headers: new HttpHeaders({
           "Content-Type": "application/json"

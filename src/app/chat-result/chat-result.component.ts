@@ -6,8 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./chat-result.component.css']
 })
 export class ChatResultComponent implements OnInit {
-  @Input() messageList:any;
-  
+  @Input() messageList:any;  
   constructor() { }
   public date;
   inputval:string;
