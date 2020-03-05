@@ -8,9 +8,10 @@ import { ChatInputComponent } from './chat-input/chat-input.component';
 import { ChatResultComponent } from './chat-result/chat-result.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from './message.service';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule],
+  imports:      [ AppRoutingModule, BrowserModule, FormsModule, HttpClientModule],
   declarations: [ AppComponent, HelloComponent, ChatHeaderComponent, ChatInputComponent, ChatResultComponent ],
   providers: [ MessageService ],
   bootstrap:    [ AppComponent ]

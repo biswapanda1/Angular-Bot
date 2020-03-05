@@ -14,6 +14,10 @@ export class ChatInputComponent implements OnInit {
   ngOnInit() {   
   }
 
+  clearInput(){
+    console.log("fsdfdfd")
+  }
+
   sendMessage = () => {
     this.messageService.addMessage(this.inputValue).subscribe(res => {
       console.log(res);

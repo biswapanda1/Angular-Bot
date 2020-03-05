@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat-header',
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatHeaderComponent implements OnInit {
 
-  constructor() {
+  constructor(private router:Router) {
    }
   public botName;
   public show = false;
   public count = 0;
+  
   ngOnInit() {
     this.botName="Sophia";
+    
   }
   showMenu = () => {
     this.count++;

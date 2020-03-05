@@ -7,15 +7,13 @@
 		<div class="user_info">
 			<span>Chat with {{botName}}</span>
 			<p>1767 Messages</p>
-		</div>		
+		</div>
 	</div>
 	<span id="action_menu_btn"><i class="fas fa-ellipsis-v" (click)="showMenu()"></i></span>
 	<div class="action_menu" *ngIf="show">
 		<ul>
-			<li><i class="fas fa-user-circle"></i> View profile</li>
-			<li><i class="fas fa-users"></i> Add to close friends</li>
-			<li><i class="fas fa-plus"></i> Add to group</li>
-			<li><i class="fas fa-ban"></i> Block</li>
+							<li (click)="clearChat()"><i class="fas fa-user-circle"></i> Clear Chat</li>
+			<li><i class="fas fa-users"></i> Leave Chat</li>
 		</ul>
 	</div>
 </div>
