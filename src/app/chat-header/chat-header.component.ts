@@ -18,7 +18,11 @@ export class ChatHeaderComponent implements OnInit {
     this.botName="Sophia";
     
   }
+  clearChat(){
+    this.show = false;
+  }
   showMenu = () => {
+
     this.count++;
     console.log(this.count);
     if (this.count % 2 == 0) {

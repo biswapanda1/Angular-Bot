@@ -12,7 +12,7 @@
 	<span id="action_menu_btn"><i class="fas fa-ellipsis-v" (click)="showMenu()"></i></span>
 	<div class="action_menu" *ngIf="show">
 		<ul>
-							<li (click)="clearChat()"><i class="fas fa-user-circle"></i> Clear Chat</li>
+						<a [routerLink]="['/result']">	<li (click)="clearChat()"><i class="fas fa-user-circle"></i> Clear Chat</li></a>
 			<li><i class="fas fa-users"></i> Leave Chat</li>
 		</ul>
 	</div>

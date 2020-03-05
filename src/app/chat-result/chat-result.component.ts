@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat-result',
@@ -7,11 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ChatResultComponent implements OnInit {
   @Input() messageList:any;  
-  constructor() { }
+  constructor(private router:Router) { }
   public date;
   inputval:string;
   ngOnInit() {
     this.date=Date.now();
+    this.router.navigateByUrl('/')
   }
 
 }
