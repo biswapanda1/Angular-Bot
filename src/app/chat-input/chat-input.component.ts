@@ -10,32 +10,33 @@ export class ChatInputComponent implements OnInit {
   constructor(private messageService: MessageService) {}
   public messageList = [];
   public inputValue: any = "";
-  
-  ngOnInit() {
-      this.messageService.getMessageList().subscribe(response=>{
-      console.log(response.length);
-      var message = {};
-      for(let i=0;i<response.length;i++){
-        message['message'] =response[i].message
-           this.messageService.getGoogleSearch(response[i].message).subscribe(res=>{
-             if(res.items){
-               message['result']=res.items[0]['title']
-             }
-      console.log(res.items);
-    })
-        console.log(message);
-          this.messageList.push(message);
-      }
-      });
-    console.log(this.messageList);
+
+  ngOnInit() {   
   }
+
   sendMessage = () => {
-    // this.messageService.getGoogleSearch(this.inputValue).subscribe(res=>{
-    //   console.log(res.items);
-    // })
-    this.messageService.addMessage(this.inputValue).subscribe(res=>{
-     this.ngOnInit();
+    this.messageService.addMessage(this.inputValue).subscribe(res => {
+      console.log(res);
+
+      this.getResult(this.inputValue,res.createdDate);
+      this.inputValue="";
+    });     
+    console.log("UserInput List"+JSON.stringify(this.messageList));
+  };
+  getResult = (inputVal,createdDate) => {
+    console.log("inside getResult");
+    this.messageService.getGoogleSearch(inputVal).subscribe(res => {
+     let messageObj={};
+     messageObj['userInput']=inputVal;
+     messageObj['createdDate']=createdDate;     
+      if (res.items) {        
+        console.log(res.items);
+        messageObj['result']=res.items[0].title;
+      }else{
+        messageObj['result']="No result found, Please try with different keywords.";
+      }
+      this.messageList.push(messageObj);
+      console.log("Result List"+JSON.stringify(this.messageList));
     });
-  console.log("hello");
   };
 }
