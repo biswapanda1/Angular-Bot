@@ -10,9 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './app.routing.module';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
-  imports:      [ AppRoutingModule, BrowserModule, FormsModule, HttpClientModule],
+  imports:      [ AppRoutingModule, BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule],
   declarations: [ AppComponent, HelloComponent, ChatHeaderComponent, ChatInputComponent, ChatResultComponent, LoginComponent ],
   providers: [ MessageService ],
   bootstrap:    [ AppComponent ]
