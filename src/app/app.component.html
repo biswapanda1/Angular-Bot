@@ -1,9 +1,10 @@
-<app-login></app-login>
+
 <div class="container-fluid h-100">
 	<div class="row justify-content-center h-100">
 		<div class="col-md-12 col-xl-12 chat">
-			<div class="card msg_card_body">
-        <app-chat-header></app-chat-header>
+			<div [ngClass]="[isLogin == null ? '' : 'card msg_card_body']" class="">
+        <app-chat-header  *ngIf="isLogin != null ">
+        </app-chat-header>
 				
 			  <!-- <app-chat-input></app-chat-input> -->
         <router-outlet></router-outlet>
